@@ -1,6 +1,6 @@
 {
-    "name": "reactboilerhelper",
-    "displayName": "React boiler helper",
+    "name": "reactquickworkflow",
+    "displayName": "React quick workflow",
     "description": "",
     "version": "0.0.1",
     "engines": {
@@ -10,21 +10,20 @@
         "Other"
     ],
     "activationEvents": [
-        "onCommand:reactboilerhelper.createComponent"
+        "onCommand:reactquickworkflow.createReactComponent"
     ],
     "main": "./dist/extension.js",
     "contributes": {
         "commands": [
             {
-                "command": "reactboilerhelper.createComponent",
+                "command": "reactquickworkflow.createReactComponent",
                 "title": "Create react component"
             }
         ],
         "menus": {
             "explorer/context": [
                 {
-                    "when": "resourceFilename =~ /src/",
-                    "command": "reactboilerhelper.createComponent",
+                    "command": "reactquickworkflow.createReactComponent",
                     "group": "z_commands"
                 }
             ]
