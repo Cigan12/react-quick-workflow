@@ -1,6 +1,10 @@
 {
     "name": "reactquickworkflow",
     "displayName": "React quick workflow",
+    "publisher": "ReqctQuickWorkflow",
+    "repository": {
+        "url": "https://github.com/Cigan12/react-quick-workflow"
+    },
     "description": "",
     "version": "0.0.1",
     "engines": {
