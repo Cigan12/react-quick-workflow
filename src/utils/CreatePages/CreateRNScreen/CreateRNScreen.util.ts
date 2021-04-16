@@ -25,11 +25,20 @@ export const createReactNativeScreen = async (e: any) => {
                 placeHolder: 'Need logic?',
             }
         );
+        let requestNeedNavigation = await vscode.window.showQuickPick(
+            ['No', 'Yes'],
+            {
+                placeHolder: 'Need navigation?',
+            }
+        );
         if (!requestNeedStyles) {
             requestNeedStyles = EYesOrNo.no;
         }
         if (!requestNeedLogis) {
             requestNeedLogis = EYesOrNo.no;
+        }
+        if (!requestNeedNavigation) {
+            requestNeedNavigation = EYesOrNo.no;
         }
         vscode.workspace.fs.writeFile(
             vscode.Uri.joinPath(
@@ -40,6 +49,7 @@ export const createReactNativeScreen = async (e: any) => {
                 simpleRNScreenTemplate(componentName, {
                     styles: requestNeedStyles as EYesOrNo,
                     logic: requestNeedLogis as EYesOrNo,
+                    navigation: requestNeedNavigation as EYesOrNo,
                 })
             )
         );
