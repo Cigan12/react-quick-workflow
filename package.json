@@ -10,7 +10,8 @@
         "Other"
     ],
     "activationEvents": [
-        "onCommand:reactquickworkflow.createReactComponent"
+        "onCommand:reactquickworkflow.createReactComponent",
+        "onCommand:reactquickworkflow.createReactNativeComponent"
     ],
     "main": "./dist/extension.js",
     "contributes": {
@@ -18,12 +19,20 @@
             {
                 "command": "reactquickworkflow.createReactComponent",
                 "title": "Create react component"
+            },
+            {
+                "command": "reactquickworkflow.createReactNativeComponent",
+                "title": "Create react native component"
             }
         ],
         "menus": {
             "explorer/context": [
                 {
                     "command": "reactquickworkflow.createReactComponent",
+                    "group": "z_commands"
+                },
+                {
+                    "command": "reactquickworkflow.createReactNativeComponent",
                     "group": "z_commands"
                 }
             ]
