@@ -11,7 +11,8 @@
     ],
     "activationEvents": [
         "onCommand:reactquickworkflow.createReactComponent",
-        "onCommand:reactquickworkflow.createReactNativeComponent"
+        "onCommand:reactquickworkflow.createReactNativeComponent",
+        "onCommand:reactquickworkflow.createReactNativeScreen"
     ],
     "main": "./dist/extension.js",
     "contributes": {
@@ -23,6 +24,10 @@
             {
                 "command": "reactquickworkflow.createReactNativeComponent",
                 "title": "Create react native component"
+            },
+            {
+                "command": "reactquickworkflow.createReactNativeScreen",
+                "title": "Create react native screen"
             }
         ],
         "menus": {
@@ -33,6 +38,10 @@
                 },
                 {
                     "command": "reactquickworkflow.createReactNativeComponent",
+                    "group": "z_commands"
+                },
+                {
+                    "command": "reactquickworkflow.createReactNativeScreen",
                     "group": "z_commands"
                 }
             ]
