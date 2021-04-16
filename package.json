@@ -6,13 +6,14 @@
         "url": "https://github.com/Cigan12/react-quick-workflow"
     },
     "description": "",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "engines": {
         "vscode": "^1.55.0"
     },
     "categories": [
         "Other"
     ],
+    "icon": "images/rqw.png",
     "activationEvents": [
         "onCommand:reactquickworkflow.createReactComponent",
         "onCommand:reactquickworkflow.createReactNativeComponent",
