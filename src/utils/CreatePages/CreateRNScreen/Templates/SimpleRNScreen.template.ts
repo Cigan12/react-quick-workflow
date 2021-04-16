@@ -13,8 +13,8 @@ ${
         ? `import { StackNavigationProp } from '@react-navigation/stack';`
         : ''
 }
-${logic === EYesOrNo.yes ? `import { L${name} } from './${name}.logic';` : ''}
 import { View } from 'react-native';
+${logic === EYesOrNo.yes ? `import { L${name} } from './${name}.logic';` : ''}
 ${styles === EYesOrNo.yes ? `import { S${name} } from './${name}.styles';` : ''}
 
 interface I${name}ScreenProps {

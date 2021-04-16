@@ -7,8 +7,8 @@ export const simpleReactNativeComponentTemplate = (
     name: string,
     { styles, logic }: ISimpleReactNativeComponentTemplateOptions
 ) => `import React from 'react';
-${logic === EYesOrNo.yes ? `import { L${name} } from './${name}.logic';` : ''}
 import { View } from 'react-native';
+${logic === EYesOrNo.yes ? `import { L${name} } from './${name}.logic';` : ''}
 ${styles === EYesOrNo.yes ? `import { S${name} } from './${name}.styles';` : ''}
 
 interface I${name}ComponentProps {}
