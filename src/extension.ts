@@ -38,6 +38,11 @@ export function activate(context: vscode.ExtensionContext) {
     context.subscriptions.push(reactNativeScreen);
     context.subscriptions.push(reactReducer);
     context.subscriptions.push(reactSaga);
+
+    // TODO: Need to add react component support
+    // TODO: Need to add react pages support
+    // TODO: Need to add next component support
+    // TODO: Need to add next pages support
 }
 
 // this method is called when your extension is deactivated
