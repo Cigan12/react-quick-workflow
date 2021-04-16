@@ -1,4 +1,3 @@
-import { TextEncoder } from 'node:util';
 import * as vscode from 'vscode';
 import { capitalize } from '../../../helpers/Capitalize.helper';
 import { strToUint8Array } from '../../../helpers/StringToUint8Array.helper';
