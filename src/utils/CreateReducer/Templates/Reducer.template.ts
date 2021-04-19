@@ -1,15 +1,19 @@
 export const reducerTemplate = (
     name: string
-) => `import { I${name}State, T${name}Actions } from './${name}.reducer.types';
+) => `import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { I${name}State } from './${name}.reducer.types';
 
-const initial${name}State: I${name}State = {};
+const initialState: I${name}State = {};
 
-export const ${name}Reducer = (
-    state = initial${name}State,
-    action: T${name}Actions
-): I${name}State => {
-    switch (action.type) {
-        default:
-            return state;
-    }
-};`;
+const ${name}Slice = createSlice({
+    name: '${name}',
+    initialState,
+    reducers: {
+        setTest(state, action: PayloadAction<string>) {
+            state.test = action.payload;
+        },
+    },
+});
+
+export const ${name}Reducer = ${name}Slice.reducer;
+export const { setTest } = ${name}Slice.actions;`;
