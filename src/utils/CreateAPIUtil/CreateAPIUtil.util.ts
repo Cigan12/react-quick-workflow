@@ -2,15 +2,19 @@ import * as vscode from 'vscode';
 import { capitalize } from '../../helpers/Capitalize.helper';
 import { strToUint8Array } from '../../helpers/StringToUint8Array.helper';
 import { EYesOrNo } from '../CreateComponent/CreateReactNativeComponent/CreateReactNativeComponent.types';
-import { sagaTemplate } from './Templates/Saga.template';
+import {
+    apiUtilTemplate,
+    apiUtilTypesTemplate,
+} from './templates/APIUtil.template';
 
-export const createSaga = async (e: any) => {
+export const createAPIUtil = async (e: any) => {
     const result = await vscode.window.showInputBox({
-        placeHolder: 'Print reducer name',
+        placeHolder: 'Print API util name',
     });
 
     if (result) {
-        const reducerName = capitalize(result);
+        const apiUtilName = capitalize(result);
+        const folderPath = e.path + '/' + apiUtilName + 'API';
         let requestNeedTypes = await vscode.window.showQuickPick(
             ['No', 'Yes'],
             {
@@ -19,19 +23,21 @@ export const createSaga = async (e: any) => {
         );
         vscode.workspace.fs.writeFile(
             vscode.Uri.joinPath(
-                vscode.Uri.file(e.path + '/' + reducerName),
-                reducerName + '.saga.ts'
+                vscode.Uri.file(folderPath),
+                apiUtilName + 'API.util.ts'
             ),
-            strToUint8Array(sagaTemplate(reducerName))
+            strToUint8Array(
+                apiUtilTemplate(apiUtilName, requestNeedTypes === EYesOrNo.yes)
+            )
         );
 
         if (requestNeedTypes === EYesOrNo.yes) {
             vscode.workspace.fs.writeFile(
                 vscode.Uri.joinPath(
-                    vscode.Uri.file(e.path + '/' + reducerName),
-                    reducerName + '.saga.types.ts'
+                    vscode.Uri.file(folderPath),
+                    apiUtilName + 'API.util.types.ts'
                 ),
-                strToUint8Array('')
+                strToUint8Array(apiUtilTypesTemplate(apiUtilName))
             );
         }
     }

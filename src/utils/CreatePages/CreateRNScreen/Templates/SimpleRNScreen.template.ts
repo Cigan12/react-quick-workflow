@@ -25,7 +25,7 @@ interface I${name}ScreenProps {
     }
 }
 export const ${name}Screen: React.FC<I${name}ScreenProps> = () => {
-        ${logic === EYesOrNo.yes ? `L${name}()` : ''}
+        ${logic === EYesOrNo.yes ? `L${name}({})` : ''}
         return (
             <View></View>
         )

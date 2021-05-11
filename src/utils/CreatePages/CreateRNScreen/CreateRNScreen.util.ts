@@ -68,7 +68,7 @@ export const createReactNativeScreen = async (e: any) => {
             vscode.workspace.fs.writeFile(
                 vscode.Uri.joinPath(
                     vscode.Uri.file(e.path + '/' + componentName),
-                    componentName + '.logic.tsx'
+                    componentName + '.logic.ts'
                 ),
                 strToUint8Array(logicTemplate(componentName))
             );

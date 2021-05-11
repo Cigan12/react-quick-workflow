@@ -1,4 +1,5 @@
 import * as vscode from 'vscode';
+import { createAPIUtil } from './utils/CreateAPIUtil/CreateAPIUtil.util';
 import { createReactComponent } from './utils/CreateComponent/CreateReactComponent/CreateReactComponent.util';
 import { createReactNativeComponent } from './utils/CreateComponent/CreateReactNativeComponent/CreateReactNativeComponent.util';
 import { createReactNativeScreen } from './utils/CreatePages/CreateRNScreen/CreateRNScreen.util';
@@ -33,11 +34,17 @@ export function activate(context: vscode.ExtensionContext) {
         createSaga
     );
 
+    const apiUtil = vscode.commands.registerCommand(
+        'reactquickworkflow.createApiUtil',
+        createAPIUtil
+    );
+
     context.subscriptions.push(reactComponent);
     context.subscriptions.push(reactNativeComponent);
     context.subscriptions.push(reactNativeScreen);
     context.subscriptions.push(reactReducer);
     context.subscriptions.push(reactSaga);
+    context.subscriptions.push(apiUtil);
 
     // TODO: Need to add react component support
     // TODO: Need to add react pages support

@@ -19,7 +19,8 @@
         "onCommand:reactquickworkflow.createReactNativeComponent",
         "onCommand:reactquickworkflow.createReactNativeScreen",
         "onCommand:reactquickworkflow.createReducer",
-        "onCommand:reactquickworkflow.createSaga"
+        "onCommand:reactquickworkflow.createSaga",
+        "onCommand:reactquickworkflow.createApiUtil"
     ],
     "main": "./dist/extension.js",
     "contributes": {
@@ -43,6 +44,10 @@
             {
                 "command": "reactquickworkflow.createSaga",
                 "title": "Create redux saga"
+            },
+            {
+                "command": "reactquickworkflow.createApiUtil",
+                "title": "Create api util"
             }
         ],
         "menus": {
@@ -65,6 +70,10 @@
                 },
                 {
                     "command": "reactquickworkflow.createSaga",
+                    "group": "z_commands"
+                },
+                {
+                    "command": "reactquickworkflow.createApiUtil",
                     "group": "z_commands"
                 }
             ]

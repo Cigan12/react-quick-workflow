@@ -14,14 +14,14 @@ export const createReducer = async (e: any) => {
         vscode.workspace.fs.writeFile(
             vscode.Uri.joinPath(
                 vscode.Uri.file(e.path + '/' + reducerName),
-                reducerName + '.reducer.tsx'
+                reducerName + '.reducer.ts'
             ),
             strToUint8Array(reducerTemplate(reducerName))
         );
         vscode.workspace.fs.writeFile(
             vscode.Uri.joinPath(
                 vscode.Uri.file(e.path + '/' + reducerName),
-                reducerName + '.reducer.types.tsx'
+                reducerName + '.reducer.types.ts'
             ),
             strToUint8Array(reducerTypesTemplate(reducerName))
         );
