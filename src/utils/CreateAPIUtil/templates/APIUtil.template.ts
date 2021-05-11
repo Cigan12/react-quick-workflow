@@ -12,6 +12,7 @@ export const APIGet${name} = async () => {
     const r: AxiosResponse<${
         types ? `IAPIGet${name}Response` : '{}'
     }> = API.get('');
+    return r.data;
 }`;
 
 export const apiUtilTypesTemplate = (name: string) =>
