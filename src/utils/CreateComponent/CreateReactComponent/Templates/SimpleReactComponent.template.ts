@@ -5,7 +5,7 @@ export const simpleReactComponentTemplate = (
     styled: EYesOrNo,
     reactMemo: EYesOrNo
 ) => `import React from 'react';
-${styled === EYesOrNo.yes ? `import { Styled${name} } from './styled.ts'` : ''}
+${styled === EYesOrNo.yes ? `import { ${name}SC } from './styled.ts'` : ''}
 
 interface IProps {}
 ${
@@ -13,18 +13,14 @@ ${
         ? `
 export const ${name} = React.memo<IProps>(() => {
     return (
-        ${
-            styled === EYesOrNo.yes
-                ? `<Styled${name}></Styled${name}>`
-                : `<div></div>`
-        }
+        ${styled === EYesOrNo.yes ? `<${name}SC></${name}SC>` : `<div></div>`}
     )
 });`
         : `export const ${name}: React.FC<IProps> = () => {
         return (
             ${
                 styled === EYesOrNo.yes
-                    ? `<Styled${name}></Styled${name}>`
+                    ? `<${name}SC></${name}SC>`
                     : `<div></div>`
             }
         )
