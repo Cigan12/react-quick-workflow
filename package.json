@@ -24,6 +24,41 @@
     ],
     "main": "./dist/extension.js",
     "contributes": {
+        "configuration": {
+            "title": "React quick workflow",
+            "properties": {
+                "reactquickworkflow.styles": {
+                    "type": "string",
+                    "default": "null",
+                    "enum": [
+                        "cssmodules",
+                        "styled-components",
+                        "scss",
+                        "css",
+                        "null"
+                    ],
+                    "description": "Specifies styles type."
+                },
+                "reactquickworkflow.projectType": {
+                    "type": "string",
+                    "default": "react",
+                    "enum": [
+                        "react",
+                        "react-native",
+                        "null"
+                    ],
+                    "description": "Specifies project type."
+                },
+                "reactquickworkflow.componentPostfix": {
+                    "type": [
+                        "string",
+                        "null"
+                    ],
+                    "default": "null",
+                    "description": "Specifies react component prefix."
+                }
+            }
+        },
         "commands": [
             {
                 "command": "reactquickworkflow.createReactComponent",
@@ -53,14 +88,17 @@
         "menus": {
             "explorer/context": [
                 {
+                    "when": "config.reactquickworkflow.projectType == react",
                     "command": "reactquickworkflow.createReactComponent",
                     "group": "z_commands"
                 },
                 {
+                    "when": "config.reactquickworkflow.projectType == react-native",
                     "command": "reactquickworkflow.createReactNativeComponent",
                     "group": "z_commands"
                 },
                 {
+                    "when": "config.reactquickworkflow.projectType == react-native",
                     "command": "reactquickworkflow.createReactNativeScreen",
                     "group": "z_commands"
                 },
