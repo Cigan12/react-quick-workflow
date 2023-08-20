@@ -6,7 +6,7 @@
         "url": "https://github.com/Cigan12/react-quick-workflow"
     },
     "description": "",
-    "version": "0.1.3",
+    "version": "0.1.4",
     "engines": {
         "vscode": "^1.55.0"
     },
@@ -14,6 +14,10 @@
         "Other"
     ],
     "icon": "images/RQWLogo.png",
+    "activationEvents": [
+        "onCommand:reactquickworkflow.createReactComponent",
+        "onCommand:reactquickworkflow.createReactView"
+    ],
     "main": "./dist/extension.js",
     "contributes": {
         "configuration": {
@@ -55,6 +59,10 @@
             {
                 "command": "reactquickworkflow.createReactComponent",
                 "title": "Create react component"
+            },
+            {
+                "command": "reactquickworkflow.createReactView",
+                "title": "Create react view"
             }
         ],
         "menus": {
@@ -62,6 +70,11 @@
                 {
                     "when": "config.reactquickworkflow.projectType == react",
                     "command": "reactquickworkflow.createReactComponent",
+                    "group": "z_commands"
+                },
+                {
+                    "when": "config.reactquickworkflow.projectType == react",
+                    "command": "reactquickworkflow.createReactView",
                     "group": "z_commands"
                 }
             ]

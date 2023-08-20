@@ -1,28 +1,36 @@
-import { EYesOrNo } from '../../CreateReactNativeComponent/CreateReactNativeComponent.types';
+import { EYesOrNo } from '../../../../types/Answers.type';
 
 export const simpleReactComponentTemplate = (
     name: string,
     styled: EYesOrNo,
-    reactMemo: EYesOrNo
-) => `import React from 'react';
-${styled === EYesOrNo.yes ? `import { ${name}SC } from './styled.ts'` : ''}
+    reactMemo: EYesOrNo,
+    exportInterface: EYesOrNo,
+) => {
+    const interfaceName =
+        exportInterface === EYesOrNo.yes ? `I${name}Props` : 'IProps';
+    return `import React from 'react';
+${
+    styled === EYesOrNo.yes
+        ? `import { S${name} } from './${name}.styled.ts'`
+        : ''
+}
 
-interface IProps {}
+${exportInterface === EYesOrNo.yes ? 'export ' : ''}interface ${interfaceName} {
+    className?: string;
+}
+
 ${
     reactMemo === EYesOrNo.yes
         ? `
-export const ${name} = React.memo<IProps>(() => {
+export const ${name} = React.memo<${interfaceName}>(() => {
     return (
-        ${styled === EYesOrNo.yes ? `<${name}SC></${name}SC>` : `<div></div>`}
+        ${styled === EYesOrNo.yes ? `<S${name}></S${name}>` : `<div></div>`}
     )
 });`
-        : `export const ${name}: React.FC<IProps> = () => {
+        : `export const ${name}: React.FC<${interfaceName}> = () => {
         return (
-            ${
-                styled === EYesOrNo.yes
-                    ? `<${name}SC></${name}SC>`
-                    : `<div></div>`
-            }
+            ${styled === EYesOrNo.yes ? `<S${name}></S${name}>` : `<div></div>`}
         )
 };`
 }`;
+};
